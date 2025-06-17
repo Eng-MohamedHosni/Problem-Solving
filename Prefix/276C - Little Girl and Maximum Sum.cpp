@@ -1,3 +1,4 @@
+// https://codeforces.com/contest/276/problem/C
 
 #define _CRT_SECURE_NO_WARNINGS
 #include<bits/stdc++.h>
