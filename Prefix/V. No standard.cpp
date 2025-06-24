@@ -22,6 +22,8 @@ void fast()
     cout.tie(0);
 }
 
+//https://codeforces.com/group/u3Ii79X3NY/contest/270254/problem/V
+
 void solve()
 {
     int n, q;
@@ -38,10 +40,11 @@ void solve()
         int l, r;
         cin >> l >> r;
 
-        p[l]++;
+        
         p[r + 1] -= r - l + 1;
 
-        slope[l + 1]++;
+        // prefix to vanish the effect and the other one for arithmetic progression
+        slope[l ]++;
         slope[r + 1]--;
         
     }
