@@ -1,32 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
  
- 
-void solve()
-{
-    int q;
-    cin >> q;
- 
-    map<string, string> handle; // final -> original
- 
-    while (q--) {
-        string oldName, newName;
-        cin >> oldName >> newName;
- 
-        if (handle.find(oldName) != handle.end()) {
-            handle[newName] = handle[oldName]; // carry over original name
-            handle.erase(oldName);
-        }
-        else {
-            handle[newName] = oldName; // oldName is the original
-        }
-    }
- 
-    cout << handle.size() << '\n';
-    
- 
-}
- 
+// https://codeforces.com/problemset/status?my=on
  
 void solve2()
 {
@@ -39,22 +14,20 @@ void solve2()
         string name, email;
         cin >> name >> email;
  
-        for (auto &it : mp)
+        for (auto &it : mp) // don't forget the reference to apply the effects
         {
             if (name == it.second)
             {
                 it.second = email;
                 IsExist = true;
                 break;
-               
             }
-        }
-        if (IsExist == false)
-        {
-            mp[name] = email;
-        }
-       
-        
+            
+       }
+            if (!IsExist)
+            {
+                mp[name] = email;
+            }
     }
         cout << mp.size() << endl;
         for (auto it : mp)
