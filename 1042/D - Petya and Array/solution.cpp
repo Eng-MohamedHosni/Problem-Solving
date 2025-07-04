@@ -4,8 +4,8 @@
 typedef long long ll;
 using namespace std;
  
-int dx8[8] = {1, -1, 0, 0, 1, 1, -1, -1};
-int dy8[8] = {0, 0, 1, -1, 1, -1, 1, -1};
+ll dx8[8] = {1, -1, 0, 0, 1, 1, -1, -1};
+ll dy8[8] = {0, 0, 1, -1, 1, -1, 1, -1};
  
 void file()
 {
@@ -18,7 +18,7 @@ void file()
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
-#define int long long
+ 
 class OrderedSet {
 private:
     typedef tree<long long,
@@ -46,14 +46,14 @@ public:
         }
     }
  
-    int Idx(long long x) {
+    ll Idx(long long x) {
         if (!Exist(x)) {
             return -1;
         }
         return s.order_of_key(x);
     }
  
-    int LastIdx(long long x) {
+    ll LastIdx(long long x) {
         if (!Exist(x)) {
             return -1;
         }
@@ -63,11 +63,11 @@ public:
         return Idx(*s.lower_bound(x)) - 1;
     }
  
-    long long Value(int index) {
+    long long Value(ll index) {
         return *s.find_by_order(index);
     }
  
-    int Count(long long x) {
+    ll Count(long long x) {
         if (!Exist(x)) {
             return 0;
         }
@@ -78,23 +78,23 @@ public:
         s.clear();
     }
  
-    int Size() {
+    ll Size() {
         return s.size();
     }
  
-    int Lower_bound(int x)
+    ll Lower_bound(ll x)
     {
  
         return *s.upper_bound(x);
     }
  
-    int Upper_bound(int x)
+    ll Upper_bound(ll x)
     {
  
         return *s.lower_bound(x);
     }
  
-    int num_of_elements_greater_than_x(int x) {
+    ll num_of_elements_greater_than_x(ll x) {
         return s.size()-s.order_of_key(x+1);
     }
 };
@@ -112,15 +112,15 @@ void solve() {
     cin>>n>>t;
  
     OrderedSet s;
-    int arr[n];
-    for (int i=0;i<n;i++) {
+    ll arr[n];
+    for (ll i=0;i<n;i++) {
         cin>>arr[i];
     }
     s.Insert(0);
     ll sum=0;
     ll counter=0;
  
-    for (int i=0;i<n;i++) {
+    for (ll i=0;i<n;i++) {
  
         sum+=arr[i];
  
@@ -131,7 +131,7 @@ void solve() {
     cout<<counter;
 }
  
-int32_t main() {
+int main() {
  
     solve();
  
