@@ -54,18 +54,20 @@ void solve()
     {
         add(r);
  
-        if (IsValid())
-        {
-            ans=min(ans,r-l+1);
-        }
         while (IsValid())
         {
             remove(l);
             l++;
-            if (IsValid())
-            {
-                ans=min(ans,r-l+1);
-            }
+           if (!IsValid())
+           {
+               l--;
+               add(l);
+               break;
+           }
+        }
+        if (IsValid())
+        {
+            ans=min(ans,r-l+1);
         }
  
         r++;
